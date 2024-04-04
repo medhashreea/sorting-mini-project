@@ -27,10 +27,13 @@ public class Quicksort implements Sorter {
   Quicksort() {
   } // Quicksort()
 
-  // +---------+-----------------------------------------------------
-  // | Methods |
-  // +---------+
+  // +----------------+----------------------------------------------
+  // | Public Methods |
+  // +----------------+
 
+  /**
+   * call to quicksort
+   */
   @Override
   public <T> void sort(T[] values, Comparator<? super T> order) {
     quicksort(values, order, 0, values.length - 1);
@@ -40,14 +43,23 @@ public class Quicksort implements Sorter {
    * Partition an array.
    */
   public <T> void partition(T[] values, Comparator<? super T> order) {
-    partition(values, order, 0, values.length);
+    partition(values, order, 0, values.length + 1);
   } // partition(T[], Comparator<? super T>)
+
+  // +-----------------+---------------------------------------------
+  // | Private Methods |
+  // +-----------------+
 
   /**
    * Sort the subarray of T given by [lb..ub) in place using
    * the Quicksort algorithm.
+   * @param <T>
+   * @param values
+   * @param order
+   * @param lb
+   * @param ub
    */
-  static <T> void quicksort(T[] values, Comparator<? super T> order, int lb, int ub) {
+  private static <T> void quicksort(T[] values, Comparator<? super T> order, int lb, int ub) {
     /*
      * base case:
      * when lb == ub
@@ -70,13 +82,16 @@ public class Quicksort implements Sorter {
     int right = ub;
     int pivot = partition(values, order, left, right);
     T[] newValues = swapper.swap(values, left, pivot);
-    left++;
+    if (values[left] != values[pivot]) {
+      left++;
+    }
+    
 
     while (left < right) {
       // if element in index i is less than element in pivot,
       // then comparator will return 1
       // if 1 is returned,
-      if (order.compare(newValues[left], newValues[lb]) == 1) {
+      if (order.compare(newValues[left], newValues[lb]) > 0) {
         // swap end value and cur value
         swapper.swap(newValues, left, right);
         right--; // shift right towards left
@@ -86,7 +101,7 @@ public class Quicksort implements Sorter {
     } // while loop
 
     // put pivot in correct place
-    if (order.compare(newValues[lb], newValues[left]) == 1) {
+    if (order.compare(newValues[lb], newValues[left]) > 0) {
       pivot = left;
       swapper.swap(newValues, pivot, lb);
     } else {
@@ -120,9 +135,8 @@ public class Quicksort implements Sorter {
    * @return pivotLoc.
    */
 
-  public static <T> int partition(T[] arr, Comparator<? super T> order, int lb, int ub) {
+  static <T> int partition(T[] arr, Comparator<? super T> order, int lb, int ub) {
     int pivotLoc = (lb + ub) / 2;
     return pivotLoc;
   } // partition(T[], Comparator<? super T>, lb, ub)
-
 } // class Quicksort

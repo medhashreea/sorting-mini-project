@@ -45,4 +45,8 @@ public class SortTester {
     assertArrayEquals(original, expected);
   } // orderedStringTest
 
+  // +----------+----------------------------------------------------
+  // | My Tests |
+  // +----------+
+
 } // class SortTester
