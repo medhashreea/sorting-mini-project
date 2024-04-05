@@ -2,7 +2,6 @@
  * Tests of Quicksort.
  */
 public class QuicksortTester extends SortTester {
-
   // +--------------+------------------------------------------------
   // | Constructors |
   // +--------------+
@@ -11,5 +10,4 @@ public class QuicksortTester extends SortTester {
     super();
     this.sorter = Quicksort.SORTER;
   } // QuicksortTester()
-
 } // class QuicksortTester

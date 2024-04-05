@@ -2,7 +2,6 @@
  * Tests of MergeSort.
  */
 public class MergeSortTester extends SortTester {
-
   // +--------------+------------------------------------------------
   // | Constructors |
   // +--------------+
@@ -11,5 +10,4 @@ public class MergeSortTester extends SortTester {
     super();
     this.sorter = MergeSort.SORTER;
   } // MergeSortTester()
-
 } // class MergeSortTester

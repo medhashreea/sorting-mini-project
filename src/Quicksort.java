@@ -53,6 +53,7 @@ public class Quicksort implements Sorter {
   /**
    * Sort the subarray of T given by [lb..ub) in place using
    * the Quicksort algorithm.
+   * 
    * @param <T>
    * @param values
    * @param order
@@ -85,7 +86,6 @@ public class Quicksort implements Sorter {
     if (values[left] != values[pivot]) {
       left++;
     }
-    
 
     while (left < right) {
       // if element in index i is less than element in pivot,

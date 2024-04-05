@@ -42,9 +42,9 @@ public class MergeSort implements Sorter {
   public <T> void sort(T[] values, Comparator<? super T> order) {
     /**
      * base case
-     * if 
-     *    empty --> values.length == 0
-     *    or null --> values == null
+     * if
+     * empty --> values.length == 0
+     * or null --> values == null
      * there is nothing to sort!
      */
     if ((values.length <= 1) || (values == null)) {
@@ -69,13 +69,13 @@ public class MergeSort implements Sorter {
    * @param ub
    */
   private static <T> void mergeSort(T[] values, Comparator<? super T> order, int lb, int ub) {
-    if(lb < ub) {
+    if (lb < ub) {
       int mid = (lb + ub) / 2;
       // sort each side
       mergeSort(values, order, lb, mid); // left is mid inclusive
       mergeSort(values, order, mid + 1, ub); // right is mid exclusive
       merge(values, order, lb, ub, mid);
-    } 
+    }
   } // mergeSort(T[] values, Comparator<? super T> order, int lb, int ub)
 
   /**
@@ -95,7 +95,7 @@ public class MergeSort implements Sorter {
     int right = mid + 1;
     int i = lb;
 
-    while((left <= mid) && (right <= ub)) {
+    while ((left <= mid) && (right <= ub)) {
       // if left is less than right
       if (order.compare(temp[left], temp[right]) <= 0) {
         // replace it in the main array and advance left and i
@@ -107,12 +107,12 @@ public class MergeSort implements Sorter {
     } // loop
 
     // clear up left side
-    while(left <= mid) {
+    while (left <= mid) {
       values[i++] = temp[left++];
     } // loop
 
     // clear up right side
-    while(right <= ub) {
+    while (right <= ub) {
       values[i++] = temp[right++];
     } // loop
   } // merge(T[] values, Comparator<? super T> order, int lb, int ub, int mid)

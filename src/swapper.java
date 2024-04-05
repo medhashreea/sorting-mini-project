@@ -1,10 +1,11 @@
 /**
  * swapper class to avoid repeated code.
- * swaps the elements in index 'i' and 
+ * swaps the elements in index 'i' and
  * index 'j' in the 'arr' array
  * 
  * @author Medhashree Adhikari
  */
+
 public class swapper {
   // +----------------+----------------------------------------------
   // | Public Methods |
